@@ -19,19 +19,19 @@ const defaultStudents = [
   { id: 10, name: 'AKBAR WAHYU FEBRIYANTO', nickname: 'Akbar', birthDate: '2007-02-10', username: 'akbrwahy._', motivation: 'tiada hidup tanpa masalah, tiada perjuangan tanpa rasa lelah, tetap semangatlah sampai bismillah mu menjadi alhamdulillah', photo: '' },
   { id: 11, name: 'GOLEOVI AL-FAUZI', nickname: 'Ovi', birthDate: '2006-05-26', username: '@goleo.pille', motivation: 'Uang memang tidak dibawa mati. Tapi kalau nggak ada uang, rasanya mau mati.', photo: '' },
   { id: 12, name: 'JOFAN HANDIKA ADYAKSA', nickname: 'Jofan', birthDate: '2006-07-25', username: 'jofanhandikaaa', motivation: '"Selagi masih dikasih nyawa jangan lupa coding. Kegagalan hari ini bisa jadi bahan cerita lucu besok"', photo: '' },
-  { id: 13, name: 'MAGNUS FREDICSEN AMIGI DA COSTA XIMENES', nickname: 'Magnos', birthDate: '2007-10-18', username: 'Magnos_18', motivation: 'keberhasilan bukanlah milik orang pintar, keberhasilan adalah milik Mereka yang sanantiasa berusaha🤟', photo: '' },
+  { id: 13, name: 'MAGNUS FREDICSEN AMIGI DA COSTA XIMENES', nickname: 'Magnos', birthDate: '2007-10-18', username: 'magnosxi_18', motivation: 'keberhasilan bukanlah milik orang pintar, keberhasilan adalah milik Mereka yang sanantiasa berusaha🤟', photo: '' },
   { id: 14, name: 'MISYELA AMANDO AYU SAPUTRI', nickname: 'Misyela', birthDate: '2006-12-21', username: 'msyelamnda', motivation: 'Jika kamu sudah berada di plan b, ingat masih ada plan c plan d plan e dan seterusnya. Tetap semangat', photo: '' },
   { id: 15, name: 'MUHAMMAD LUQMAN AL BUKHORI', nickname: 'Luqman', birthDate: '2007-03-28', username: 'Ailzee007', motivation: 'tidak ada kata kata hanya ada bukti nyata', photo: '' },
-  { id: 16, name: 'NAYANDA HALSEMA', nickname: 'Naya', birthDate: '2005-02-05', username: 'nayanda halsema', motivation: 'Pendidikan adalah paspor ke masa depan, karena besok milik mereka yang mempersiapkannya hari ini', photo: '' },
+  { id: 16, name: 'NAYANDA HALSEMA', nickname: 'Naya', birthDate: '2005-02-05', username: 'halsema.nayanda', motivation: 'Pendidikan adalah paspor ke masa depan, karena besok milik mereka yang mempersiapkannya hari ini', photo: '' },
   { id: 17, name: 'PRATIWI', nickname: 'Tiwi', birthDate: '2006-06-15', username: 'oneof_tiwi', motivation: 'kepercayaan diri tumbuh dari keberanian untuk mencoba', photo: '' },
   { id: 18, name: 'PYPYT RHAKHIMINATUN KHASANAH', nickname: 'Pypyt', birthDate: '2007-07-24', username: 'x.lupy', motivation: 'The death will smile at every man, All one can do is to smile back - The Sigit', photo: '' },
   { id: 19, name: 'RATRI NUR PRASINTA', nickname: 'Ratri', birthDate: '2005-07-22', username: 'ratrii.np', motivation: 'semangkok mi ayam dan es jeruk lalu lanjutkan perjalanan mu', photo: '' },
   { id: 20, name: 'REZA MICHAEL ALVANDO', nickname: 'Reza', birthDate: '2007-07-01', username: 'reza_mikell', motivation: 'penting urip ngono wae', photo: '' },
   { id: 21, name: 'SAVIRA DIVA AZZAHRA', nickname: 'Savira', birthDate: '2007-01-31', username: 'saviradivaaz', motivation: 'di dunia informasi, setiap data memiliki cerita yang menanti untuk diceritakan', photo: '' },
-  { id: 22, name: 'SYIFA DAMAR ARUM', nickname: 'Syifa', birthDate: '2007-05-04', username: 'ciipsyifa', motivation: 'tidak ada jalan tanpa debu dan tidak ada kesuksesan tanpa doa ibu', photo: '' },
+  { id: 22, name: 'SYIFA DAMAR ARUM', nickname: 'Syifa', birthDate: '2007-05-04', username: 'ciipssyifa', motivation: 'tidak ada jalan tanpa debu dan tidak ada kesuksesan tanpa doa ibu', photo: '' },
   { id: 23, name: 'VICKY REGA SYAPUTRA', nickname: 'Vicky', birthDate: '2007-06-15', username: 'pikiii_r', motivation: 'fisik bisa dirubah, materi cari di google', photo: '' },
   { id: 24, name: 'MOHAMMED NABIL AL SELMI', nickname: 'Al Selmi', birthDate: '2001-05-24', username: 'al selmi', motivation: '', photo: '' },
-  { id: 25, name: 'NINA FIFI ANDHANI', nickname: 'Nina', birthDate: '2007-06-30', username: 'ninafifii', motivation: 'Sabar itu penting, tapi makan itu lebih penting', photo: '' }
+  { id: 25, name: 'NINA FIFI ANDHANI', nickname: 'Nina', birthDate: '2007-06-30', username: 'ninafifii_', motivation: 'Sabar itu penting, tapi makan itu lebih penting', photo: '' }
 ];
 
 let students = loadStudentsFromStorage();
@@ -191,8 +191,7 @@ function renderFeatured() {
     </div>
     <h3 class="text-xl font-bold text-gray-800">${students.length - 2} Siswa Lainnya</h3>
     <p class="text-purple-700 font-semibold mb-2">Anggota Kelas</p>
-    <p class="text-purple-600 text-sm mb-1">Beragam talenta & cita-cita</p>
-    <p class="text-gray-600 text-sm">Setiap siswa memiliki keunikan luar biasa.</p>
+    <p class="text-gray-600 text-sm">Setiap Mahasiswa memiliki keunikan luar biasa.</p>
   `;
   featured.appendChild(others);
 }
