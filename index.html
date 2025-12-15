@@ -1,298 +1,702 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="image/logo.jpg" type="image/png">
-  <title>Sistem Informasi 25A3</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body { box-sizing: border-box; }
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
-    * { font-family: 'Noto Sans JP', sans-serif; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="image/logo.jpg" type="image/png" />
+    <title>Sistem Informasi 25A3</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        box-sizing: border-box;
+      }
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap");
+      * {
+        font-family: "Noto Sans JP", sans-serif;
+      }
 
-    .japanese-pattern {
-      background-image:
-        radial-gradient(circle at 25% 25%, rgba(139, 69, 19, 0.06) 2px, transparent 2px),
-        radial-gradient(circle at 75% 75%, rgba(139, 69, 19, 0.06) 2px, transparent 2px);
-      background-size: 40px 40px;
-    }
+      .japanese-pattern {
+        background-image: radial-gradient(
+            circle at 25% 25%,
+            rgba(139, 69, 19, 0.06) 2px,
+            transparent 2px
+          ),
+          radial-gradient(
+            circle at 75% 75%,
+            rgba(139, 69, 19, 0.06) 2px,
+            transparent 2px
+          );
+        background-size: 40px 40px;
+      }
 
-    .wood-texture {
-      background: linear-gradient(45deg, #8B4513 25%, #A0522D 25%, #A0522D 50%, #8B4513 50%, #8B4513 75%, #A0522D 75%);
-      background-size: 4px 4px;
-    }
+      .wood-texture {
+        background: linear-gradient(
+          45deg,
+          #8b4513 25%,
+          #a0522d 25%,
+          #a0522d 50%,
+          #8b4513 50%,
+          #8b4513 75%,
+          #a0522d 75%
+        );
+        background-size: 4px 4px;
+      }
 
-    .fade-in { animation: fadeIn 0.8s ease-in; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px);} to { opacity: 1; transform: translateY(0);} }
+      .fade-in {
+        animation: fadeIn 0.8s ease-in;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
-    .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-    .hover-lift:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+      .hover-lift {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .hover-lift:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
 
-    .nav-item { position: relative; overflow: hidden; }
-    .nav-item::after { content: ''; position: absolute; bottom: 0; left: -100%; width: 100%; height: 2px; background: #8B4513; transition: left 0.3s ease; }
-    .nav-item:hover::after { left: 0; }
+      .nav-item {
+        position: relative;
+        overflow: hidden;
+      }
+      .nav-item::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: -100%;
+        width: 100%;
+        height: 2px;
+        background: #8b4513;
+        transition: left 0.3s ease;
+      }
+      .nav-item:hover::after {
+        left: 0;
+      }
 
-    .editable-highlight { border: 2px dashed #9333ea !important; border-radius: 8px; padding: 4px; background: rgba(147, 51, 234, 0.06); transition: all 0.3s ease; }
-    .editable-highlight:hover { background: rgba(147, 51, 234, 0.12); transform: scale(1.02); }
+      .editable-highlight {
+        border: 2px dashed #9333ea !important;
+        border-radius: 8px;
+        padding: 4px;
+        background: rgba(147, 51, 234, 0.06);
+        transition: all 0.3s ease;
+      }
+      .editable-highlight:hover {
+        background: rgba(147, 51, 234, 0.12);
+        transform: scale(1.02);
+      }
 
-    /* Modal backdrop */
-    .modal-backdrop { background: rgba(0,0,0,0.5); }
-  </style>
-</head>
-<body class="bg-gradient-to-br from-amber-50 to-orange-100 japanese-pattern">
-  <!-- Navigation -->
-  <nav class="bg-white/90 backdrop-blur-sm shadow-lg sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-16">
-        <div class="flex items-center space-x-3">
-          <div class="w-10 h-15 rounded-full overflow-hidden">
-  <img src="image/logo.jpg" alt="Logo Kelas" class="w-full h-full object-cover">
-</div>
-          <span class="text-xl font-bold text-gray-800">Sistem Informasi</span>
+      /* Modal backdrop */
+      .modal-backdrop {
+        background: rgba(0, 0, 0, 0.5);
+      }
+    </style>
+  </head>
+  <body class="bg-gradient-to-br from-amber-50 to-orange-100 japanese-pattern">
+    <!-- Navigation -->
+    <nav class="bg-white/90 backdrop-blur-sm shadow-lg sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-15 rounded-full overflow-hidden">
+              <img
+                src="image/logo.jpg"
+                alt="Logo Kelas"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <span class="text-xl font-bold text-gray-800"
+              >Sistem Informasi</span
+            >
+          </div>
+          <div class="hidden md:flex space-x-8">
+            <a
+              href="#home"
+              class="nav-item text-gray-700 hover:text-amber-700 px-3 py-2 font-medium"
+              >Beranda</a
+            >
+            <a
+              href="#about"
+              class="nav-item text-gray-700 hover:text-amber-700 px-3 py-2 font-medium"
+              >Tentang</a
+            >
+            <a
+              href="#teacher"
+              class="nav-item text-gray-700 hover:text-amber-700 px-3 py-2 font-medium"
+              >Dosen</a
+            >
+            <a
+              href="#students"
+              class="nav-item text-gray-700 hover:text-amber-700 px-3 py-2 font-medium"
+              >Mahasiswa</a
+            >
+            <a
+              href="#gallery"
+              class="nav-item text-gray-700 hover:text-amber-700 px-3 py-2 font-medium"
+              >Galeri</a
+            >
+          </div>
+          <button id="mobile-menu-btn" class="md:hidden p-2">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
         </div>
-        <div class="hidden md:flex space-x-8">
-          <a href="#home" class="nav-item text-gray-700 hover:text-amber-700 px-3 py-2 font-medium">Beranda</a>
-          <a href="#about" class="nav-item text-gray-700 hover:text-amber-700 px-3 py-2 font-medium">Tentang</a>
-          <a href="#teacher" class="nav-item text-gray-700 hover:text-amber-700 px-3 py-2 font-medium">Dosen</a>
-          <a href="#students" class="nav-item text-gray-700 hover:text-amber-700 px-3 py-2 font-medium">Mahasiswa</a>
-          <a href="#gallery" class="nav-item text-gray-700 hover:text-amber-700 px-3 py-2 font-medium">Galeri</a>
+      </div>
+      <div
+        id="mobile-menu"
+        class="md:hidden hidden bg-white/95 backdrop-blur-sm"
+      >
+        <div class="px-2 pt-2 pb-3 space-y-1">
+          <a
+            href="#home"
+            class="block px-3 py-2 text-gray-700 hover:text-amber-700"
+            >Beranda</a
+          >
+          <a
+            href="#about"
+            class="block px-3 py-2 text-gray-700 hover:text-amber-700"
+            >Tentang</a
+          >
+          <a
+            href="#teacher"
+            class="block px-3 py-2 text-gray-700 hover:text-amber-700"
+            >Dosen</a
+          >
+          <a
+            href="#students"
+            class="block px-3 py-2 text-gray-700 hover:text-amber-700"
+            >Mahasiswa</a
+          >
+          <a
+            href="#gallery"
+            class="block px-3 py-2 text-gray-700 hover:text-amber-700"
+            >Galeri</a
+          >
         </div>
-        <button id="mobile-menu-btn" class="md:hidden p-2">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
       </div>
-    </div>
-    <div id="mobile-menu" class="md:hidden hidden bg-white/95 backdrop-blur-sm">
-      <div class="px-2 pt-2 pb-3 space-y-1">
-        <a href="#home" class="block px-3 py-2 text-gray-700 hover:text-amber-700">Beranda</a>
-        <a href="#about" class="block px-3 py-2 text-gray-700 hover:text-amber-700">Tentang</a>
-        <a href="#teacher" class="block px-3 py-2 text-gray-700 hover:text-amber-700">Dosen</a>
-        <a href="#students" class="block px-3 py-2 text-gray-700 hover:text-amber-700">Mahasiswa</a>
-        <a href="#gallery" class="block px-3 py-2 text-gray-700 hover:text-amber-700">Galeri</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="min-h-screen flex items-center justify-center relative overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-amber-900/20 to-orange-900/20"
+      ></div>
+      <div class="relative z-10 text-center px-4 max-w-4xl mx-auto fade-in">
+        <div class="mb-8">
+          <div class="flex items-center justify-center">
+            <div class="w-28 h-28 rounded-full overflow-hidden">
+              <img
+                src="image/logo.jpg"
+                alt="Logo Kelas"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+        <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
+          Selamat Datang di
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-orange-700"
+            >Kelas Sistem Informasi 25A3</span
+          >
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-600 mb-8 font-light">
+          "Make Dream Come True With Action"
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button
+            onclick="openInstagram()"
+            class="px-8 py-4 bg-gradient-to-r from-amber-600 to-orange-700 text-white rounded-full font-semibold hover:from-amber-700 hover:to-orange-800 transform hover:scale-105 transition-all duration-300 shadow-lg"
+          >
+            Jelajahi Instagram Kami
+          </button>
+
+          <button
+            onclick="goToAbout()"
+            class="px-8 py-4 bg-white/80 backdrop-blur-sm text-amber-700 rounded-full font-semibold hover:bg-white transition-all duration-300 shadow-lg border border-amber-200"
+          >
+            Lihat Profil Mahasiswa
+          </button>
+        </div>
       </div>
-    </div>
-  </nav>
+    </section>
 
-  <!-- Hero Section -->
-  <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-r from-amber-900/20 to-orange-900/20"></div>
-    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto fade-in">
-      <div class="mb-8">
-        <div class="flex items-center justify-center">
-  <div class="w-28 h-28 rounded-full overflow-hidden">
-    <img src="image/logo.jpg" alt="Logo Kelas" class="w-full h-full object-cover">
-  </div>
-</div>
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white/50 backdrop-blur-sm">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-16 fade-in">
+          <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+            Tentang Kelas 25A3
+          </h2>
+          <div
+            class="w-24 h-1 bg-gradient-to-r from-amber-600 to-orange-700 mx-auto mb-8"
+          ></div>
+        </div>
 
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="fade-in">
+            <div
+              class="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover-lift"
+            >
+              <h3 class="text-2xl font-bold text-gray-800 mb-6">
+                Deskripsi Kelas
+              </h3>
+              <p class="text-gray-600 leading-relaxed mb-6">
+                Kelas 25A3 merupakan salah satu kelas sistem informasi di
+                Universitas Duta Bangsa Surakarta yang sudah berdiri sejak tahun
+                2004 (STMIK) dan berubah menjadi Universitas pada tahun 2018
+              </p>
+              <p class="text-gray-600 leading-relaxed">
+                Sistem Informasi angkatan 25 kelas A3 adalah kelas ter the best
+                dan ter gokil
+              </p>
+            </div>
+          </div>
 
-      </div>
-      <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
-        Selamat Datang di
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-orange-700">Kelas Sistem Informasi 25A3</span>
-      </h1>
-      <p class="text-xl md:text-2xl text-gray-600 mb-8 font-light">"Make Dream Come True With Action"</p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <button onclick="openInstagram()" 
-  class="px-8 py-4 bg-gradient-to-r from-amber-600 to-orange-700 text-white rounded-full font-semibold hover:from-amber-700 hover:to-orange-800 transform hover:scale-105 transition-all duration-300 shadow-lg">
-  Jelajahi Instagram Kami
-</button>
+          <div class="fade-in">
+            <div
+              class="bg-gradient-to-br from-amber-100 to-orange-100 rounded-2xl p-8 shadow-xl hover-lift"
+            >
+              <h3 class="text-2xl font-bold text-gray-800 mb-6">
+                Jadwal Perkuliahan
+              </h3>
+              <div class="space-y-4">
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-amber-600 rounded-full"></div>
+                  <span class="text-gray-700"
+                    >Senin:Bahasa Inggris I, Konsep Sistem Informasi, Bisnis &
+                    Manjemen</span
+                  >
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-amber-600 rounded-full"></div>
+                  <span class="text-gray-700"
+                    >Rabu:MAtematika Dasar, Arsitektur dan Organisasi Komputer,
+                    Pengantar Teknologi Informasi</span
+                  >
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-amber-600 rounded-full"></div>
+                  <span class="text-gray-700"
+                    >Jumat:Algortima & Struktur Data, Dasar Pemograman</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-        <button onclick="goToAbout()" 
-  class="px-8 py-4 bg-white/80 backdrop-blur-sm text-amber-700 rounded-full font-semibold hover:bg-white transition-all duration-300 shadow-lg border border-amber-200">
-  Lihat Profil Mahasiswa
-</button>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="py-20 bg-white/50 backdrop-blur-sm">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center mb-16 fade-in">
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Tentang Kelas 25A3</h2>
-        <div class="w-24 h-1 bg-gradient-to-r from-amber-600 to-orange-700 mx-auto mb-8"></div>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div class="fade-in">
-          <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover-lift">
-            <h3 class="text-2xl font-bold text-gray-800 mb-6">Deskripsi Kelas</h3>
-            <p class="text-gray-600 leading-relaxed mb-6">
-              Kelas 25A3 merupakan salah satu kelas sistem informasi di Universitas Duta Bangsa Surakarta yang sudah berdiri sejak tahun 2004 (STMIK) dan berubah menjadi Universitas pada tahun 2018
+        <!-- Motto Section -->
+        <div class="mt-16 text-center fade-in">
+          <div
+            class="bg-gradient-to-r from-amber-600 to-orange-700 rounded-2xl p-12 text-white shadow-2xl"
+          >
+            <h3 class="text-3xl font-bold mb-4">Motto Kelas</h3>
+            <p class="text-4xl md:text-5xl font-bold italic">
+              "Bersatu untuk Menjadi Yang Terbaik"
             </p>
-            <p class="text-gray-600 leading-relaxed">
-              Sistem Informasi angkatan 25 kelas A3 adalah kelas ter the best dan ter gokil
-            </p>
           </div>
         </div>
 
-        <div class="fade-in">
-          <div class="bg-gradient-to-br from-amber-100 to-orange-100 rounded-2xl p-8 shadow-xl hover-lift">
-            <h3 class="text-2xl font-bold text-gray-800 mb-6">Jadwal Perkuliahan</h3>
-            <div class="space-y-4">
-              <div class="flex items-center space-x-3"><div class="w-3 h-3 bg-amber-600 rounded-full"></div><span class="text-gray-700">Senin:Bahasa Inggris I, Konsep Sistem Informasi, Bisnis & Manjemen</span></div>
-              <div class="flex items-center space-x-3"><div class="w-3 h-3 bg-amber-600 rounded-full"></div><span class="text-gray-700">Rabu:MAtematika Dasar, Arsitektur dan Organisasi Komputer, Pengantar Teknologi Informasi</span></div>
-              <div class="flex items-center space-x-3"><div class="w-3 h-3 bg-amber-600 rounded-full"></div><span class="text-gray-700">Jumat:Algortima & Struktur Data, Dasar Pemograman</span></div>
+        <!-- Leadership Section -->
+        <div class="mt-16 fade-in">
+          <h3 class="text-3xl font-bold text-center text-gray-800 mb-12">
+            Struktur Kelas 25A3
+          </h3>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div
+              class="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover-lift text-center"
+            >
+              <div
+                class="w-20 h-20 bg-gradient-to-br from-amber-600 to-orange-700 rounded-full mx-auto mb-4 flex items-center justify-center"
+              >
+                <svg
+                  class="w-10 h-10 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                  />
+                </svg>
+              </div>
+              <h4 class="text-xl font-bold text-gray-800 mb-2">Ketua Kelas</h4>
+              <p class="text-2xl font-semibold text-amber-700">Achmad Daniel</p>
+            </div>
+
+            <div
+              class="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover-lift text-center"
+            >
+              <div
+                class="w-20 h-20 bg-gradient-to-br from-orange-600 to-red-700 rounded-full mx-auto mb-4 flex items-center justify-center"
+              >
+                <svg
+                  class="w-10 h-10 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2l2.09 4.26L18 7.27l-3 2.93.71 4.13L12 12.77l-3.71 1.56L9 10.2 6 7.27l3.91-1.01L12 2z"
+                  />
+                </svg>
+              </div>
+              <h4 class="text-xl font-bold text-gray-800 mb-2">Wakil Ketua</h4>
+              <p class="text-2xl font-semibold text-orange-700">
+                Fattah Syaifulloh
+              </p>
+            </div>
+
+            <div
+              class="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover-lift text-center"
+            >
+              <div
+                class="w-20 h-20 bg-gradient-to-br from-orange-600 to-red-700 rounded-full mx-auto mb-4 flex items-center justify-center"
+              >
+                <svg
+                  class="w-10 h-10 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2l2.09 4.26L18 7.27l-3 2.93.71 4.13L12 12.77l-3.71 1.56L9 10.2 6 7.27l3.91-1.01L12 2z"
+                  />
+                </svg>
+              </div>
+              <h4 class="text-xl font-bold text-gray-800 mb-2">Sekretaris</h4>
+              <p class="text-2xl font-semibold text-orange-700">
+                Bagas Nugraha Endiansyah
+              </p>
+            </div>
+
+            <div
+              class="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover-lift text-center"
+            >
+              <div
+                class="w-20 h-20 bg-gradient-to-br from-orange-600 to-red-700 rounded-full mx-auto mb-4 flex items-center justify-center"
+              >
+                <svg
+                  class="w-10 h-10 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2l2.09 4.26L18 7.27l-3 2.93.71 4.13L12 12.77l-3.71 1.56L9 10.2 6 7.27l3.91-1.01L12 2z"
+                  />
+                </svg>
+              </div>
+              <h4 class="text-xl font-bold text-gray-800 mb-2">Bendahara</h4>
+              <p class="text-2xl font-semibold text-orange-700">Pratiwi</p>
+              <p class="text-2xl font-semibold text-orange-700">
+                Syifa Damar Arum
+              </p>
+            </div>
+
+            <div
+              class="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover-lift text-center"
+            >
+              <div
+                class="w-20 h-20 bg-gradient-to-br from-orange-600 to-red-700 rounded-full mx-auto mb-4 flex items-center justify-center"
+              >
+                <svg
+                  class="w-10 h-10 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2l2.09 4.26L18 7.27l-3 2.93.71 4.13L12 12.77l-3.71 1.56L9 10.2 6 7.27l3.91-1.01L12 2z"
+                  />
+                </svg>
+              </div>
+              <h4 class="text-xl font-bold text-gray-800 mb-2">PDD</h4>
+              <p class="text-2xl font-semibold text-orange-700">Pypyt</p>
+              <p class="text-2xl font-semibold text-orange-700">
+                Ardian Firmansyah
+              </p>
+              <p class="text-2xl font-semibold text-orange-700">Magnus</p>
             </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- Motto Section -->
-      <div class="mt-16 text-center fade-in">
-        <div class="bg-gradient-to-r from-amber-600 to-orange-700 rounded-2xl p-12 text-white shadow-2xl">
-          <h3 class="text-3xl font-bold mb-4">Motto Kelas</h3>
-          <p class="text-4xl md:text-5xl font-bold italic">"Bersatu untuk Menjadi Yang Terbaik"</p>
+    <!-- Teacher Section -->
+    <section
+      id="teacher"
+      class="py-20 bg-gradient-to-br from-amber-50 to-orange-100"
+    >
+      <div class="max-w-4xl mx-auto px-4 text-center fade-in">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+          Dosen Pengampu Kami
+        </h2>
+        <div
+          class="w-24 h-1 bg-gradient-to-r from-amber-600 to-orange-700 mx-auto mb-12"
+        ></div>
+
+        <div
+          class="bg-white/80 backdrop-blur-sm rounded-3xl p-12 shadow-2xl hover-lift"
+        >
+          <div
+            class="w-32 h-32 bg-gradient-to-br from-amber-600 to-orange-700 rounded-full mx-auto mb-8 flex items-center justify-center"
+          >
+            <svg
+              class="w-16 h-16 text-white"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+              />
+            </svg>
+          </div>
+          <h3 class="text-3xl font-bold text-gray-800 mb-4">
+            Mr. Marta Ardiyanto, S.Kom, M.Kom
+          </h3>
+          <p class="text-xl text-amber-700 mb-6 font-semibold">
+            Dosen Pengampu 25A3
+          </p>
+          <p class="text-gray-600 leading-relaxed max-w-2xl mx-auto">
+            Seorang pendidik yang berpengalaman dan penuh dedikasi. Mr. Marta
+            selalu memberikan bimbingan terbaik untuk membantu setiap mahasiswa
+            mencapai potensi maksimal mereka. Dengan pendekatan yang hangat dan
+            personal, beliau menciptakan lingkungan belajar yang nyaman dan
+            inspiratif.
+          </p>
         </div>
       </div>
+    </section>
 
-      <!-- Leadership Section -->
-      <div class="mt-16 fade-in">
-        <h3 class="text-3xl font-bold text-center text-gray-800 mb-12">Struktur Kelas 25A3</h3>
-        <div class="grid md:grid-cols-2 gap-8">
-          <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover-lift text-center">
-            <div class="w-20 h-20 bg-gradient-to-br from-amber-600 to-orange-700 rounded-full mx-auto mb-4 flex items-center justify-center">
-              <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <h4 class="text-xl font-bold text-gray-800 mb-2">Ketua Kelas</h4>
-            <p class="text-2xl font-semibold text-amber-700">Achmad Daniel</p>
-          </div>
-
-          <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover-lift text-center">
-            <div class="w-20 h-20 bg-gradient-to-br from-orange-600 to-red-700 rounded-full mx-auto mb-4 flex items-center justify-center">
-              <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.09 4.26L18 7.27l-3 2.93.71 4.13L12 12.77l-3.71 1.56L9 10.2 6 7.27l3.91-1.01L12 2z"/></svg>
-            </div>
-            <h4 class="text-xl font-bold text-gray-800 mb-2">Wakil Ketua</h4>
-            <p class="text-2xl font-semibold text-orange-700">Fattah Syaifulloh</p>
-          </div>
-
-          <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover-lift text-center">
-            <div class="w-20 h-20 bg-gradient-to-br from-orange-600 to-red-700 rounded-full mx-auto mb-4 flex items-center justify-center">
-              <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.09 4.26L18 7.27l-3 2.93.71 4.13L12 12.77l-3.71 1.56L9 10.2 6 7.27l3.91-1.01L12 2z"/></svg>
-            </div>
-            <h4 class="text-xl font-bold text-gray-800 mb-2">Sekretaris</h4>
-            <p class="text-2xl font-semibold text-orange-700">Bagas Nugraha Endiansyah</p>
-          </div>
-
-          <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover-lift text-center">
-            <div class="w-20 h-20 bg-gradient-to-br from-orange-600 to-red-700 rounded-full mx-auto mb-4 flex items-center justify-center">
-              <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.09 4.26L18 7.27l-3 2.93.71 4.13L12 12.77l-3.71 1.56L9 10.2 6 7.27l3.91-1.01L12 2z"/></svg>
-            </div>
-            <h4 class="text-xl font-bold text-gray-800 mb-2">Bendahara</h4>
-            <p class="text-2xl font-semibold text-orange-700">Pratiwi</p>
-            <p class="text-2xl font-semibold text-orange-700">Syifa Damar Arum</p>
-          </div>
-
-          <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover-lift text-center">
-            <div class="w-20 h-20 bg-gradient-to-br from-orange-600 to-red-700 rounded-full mx-auto mb-4 flex items-center justify-center">
-              <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.09 4.26L18 7.27l-3 2.93.71 4.13L12 12.77l-3.71 1.56L9 10.2 6 7.27l3.91-1.01L12 2z"/></svg>
-            </div>
-            <h4 class="text-xl font-bold text-gray-800 mb-2">PDD</h4>
-            <p class="text-2xl font-semibold text-orange-700">Pypyt</p>
-            <p class="text-2xl font-semibold text-orange-700">Ardian Firmansyah</p>
-            <p class="text-2xl font-semibold text-orange-700">Magnus</p>
-          </div>
+    <!-- Students Section -->
+    <section id="students" class="py-20 bg-white/50 backdrop-blur-sm">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-16 fade-in">
+          <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+            Profil Mahasiswa
+          </h2>
+          <div
+            class="w-24 h-1 bg-gradient-to-r from-amber-600 to-orange-700 mx-auto mb-8"
+          ></div>
+          <p id="student-count" class="text-xl text-gray-600">
+            25 Mahasiswa di Kelas 25A3
+          </p>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Teacher Section -->
-  <section id="teacher" class="py-20 bg-gradient-to-br from-amber-50 to-orange-100">
-    <div class="max-w-4xl mx-auto px-4 text-center fade-in">
-      <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Dosen Pengampu Kami</h2>
-      <div class="w-24 h-1 bg-gradient-to-r from-amber-600 to-orange-700 mx-auto mb-12"></div>
-
-      <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-12 shadow-2xl hover-lift">
-        <div class="w-32 h-32 bg-gradient-to-br from-amber-600 to-orange-700 rounded-full mx-auto mb-8 flex items-center justify-center">
-          <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-        </div>
-        <h3 class="text-3xl font-bold text-gray-800 mb-4">Mr. Marta Ardiyanto, S.Kom, M.Kom</h3>
-        <p class="text-xl text-amber-700 mb-6 font-semibold">Dosen Pengampu 25A3</p>
-        <p class="text-gray-600 leading-relaxed max-w-2xl mx-auto">Seorang pendidik yang berpengalaman dan penuh dedikasi. Mr. Marta selalu memberikan bimbingan terbaik untuk membantu setiap mahasiswa mencapai potensi maksimal mereka. Dengan pendekatan yang hangat dan personal, beliau menciptakan lingkungan belajar yang nyaman dan inspiratif.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Students Section -->
-  <section id="students" class="py-20 bg-white/50 backdrop-blur-sm">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="text-center mb-16 fade-in">
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Profil Mahasiswa</h2>
-        <div class="w-24 h-1 bg-gradient-to-r from-amber-600 to-orange-700 mx-auto mb-8"></div>
-        <p id="student-count" class="text-xl text-gray-600">25 Mahasiswa di Kelas 25A3</p>
-      </div>
-
-      <div class="mb-8 text-center space-x-4">
-        <button id="show-all-btn" onclick="toggleStudentList()" class="px-8 py-3 bg-gradient-to-r from-amber-600 to-orange-700 text-white rounded-full font-semibold transition-all duration-300 shadow-lg">Lihat Semua Siswa</button>
-        <!-- <button id="add-photo-btn" onclick="openAddPhotoModal()" class="px-8 py-3 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-full font-semibold transition-all duration-300 shadow-lg">📸 Tambah Foto</button>
+        <div class="mb-8 text-center space-x-4">
+          <button
+            id="show-all-btn"
+            onclick="toggleStudentList()"
+            class="px-8 py-3 bg-gradient-to-r from-amber-600 to-orange-700 text-white rounded-full font-semibold transition-all duration-300 shadow-lg"
+          >
+            Lihat Semua Siswa
+          </button>
+          <!-- <button id="add-photo-btn" onclick="openAddPhotoModal()" class="px-8 py-3 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-full font-semibold transition-all duration-300 shadow-lg">📸 Tambah Foto</button>
         <button id="edit-mode-btn" onclick="toggleEditMode()" class="px-8 py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-full font-semibold transition-all duration-300 shadow-lg">✏️ Mode Edit</button> -->
-      </div>
-
-      <div id="student-grid" class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 hidden"></div>
-
-      <!-- Featured Students Preview -->
-      <div id="featured-students" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Will be populated by JS as well -->
-      </div>
-    </div>
-  </section>
-
-  <!-- Gallery Section -->
-  <section id="gallery" class="py-20 bg-gradient-to-br from-amber-50 to-orange-100">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center mb-16 fade-in">
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Galeri Kelas</h2>
-        <div class="w-24 h-1 bg-gradient-to-r from-amber-600 to-orange-700 mx-auto mb-8"></div>
-        <p class="text-xl text-gray-600">Momen-momen berharga bersama Kelas 25A3</p>
-      </div>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover-lift fade-in">
-          <div class="w-full h-48 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl mb-4 flex items-center justify-center">
-            <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </div>
-          <h3 class="text-lg font-bold text-gray-800 mb-2">Kegiatan Belajar</h3>
-          <p class="text-gray-600 text-sm">Suasana belajar yang aktif dan menyenangkan di kelas 25A3</p>
         </div>
 
-        <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover-lift fade-in">
-          <div class="w-full h-48 bg-gradient-to-br from-green-400 to-green-600 rounded-xl mb-4 flex items-center justify-center">
-            <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M4 4h16v12H4z"/></svg>
-          </div>
-          <h3 class="text-lg font-bold text-gray-800 mb-2">Ekstrakurikuler</h3>
-          <p class="text-gray-600 text-sm">Kegiatan non-akademik yang memperkaya pengalaman siswa.</p>
+        <div
+          id="student-grid"
+          class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 hidden"
+        ></div>
+
+        <!-- Featured Students Preview -->
+        <div
+          id="featured-students"
+          class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          <!-- Will be populated by JS as well -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section
+      id="gallery"
+      class="py-20 bg-gradient-to-br from-amber-50 to-orange-100"
+    >
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-16 fade-in">
+          <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+            Galeri Kelas
+          </h2>
+          <div
+            class="w-24 h-1 bg-gradient-to-r from-amber-600 to-orange-700 mx-auto mb-8"
+          ></div>
+          <p class="text-xl text-gray-600">
+            Momen-momen berharga bersama Kelas 25A3
+          </p>
         </div>
 
-        <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover-lift fade-in">
-          <div class="w-full h-48 bg-gradient-to-br from-purple-400 to-pink-500 rounded-xl mb-4 flex items-center justify-center">
-            <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div
+            class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover-lift fade-in"
+          >
+            <div
+              class="w-full h-50 bg-gradient-to-br from-purple-400 to-pink-500 rounded-xl mb-4 overflow-hidden flex items-center justify-center"
+            >
+              <img
+                src="image/foto-1.jpg"
+                alt="Kenangan Kelas"
+                class="w-full h-full object-cover"
+              />
+            </div>
+
+            <h3 class="text-lg font-bold text-gray-800 mb-2">Outbond Kampus</h3>
+            <p class="text-gray-600 text-sm">
+              Hari ke-2 Outbond di Tawangmangu
+            </p>
           </div>
-          <h3 class="text-lg font-bold text-gray-800 mb-2">Kenangan</h3>
-          <p class="text-gray-600 text-sm">Foto-foto momen kelas yang tak terlupakan.</p>
+
+          <div
+            class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover-lift fade-in"
+          >
+            <div
+              class="w-full h-50 bg-gradient-to-br from-purple-400 to-pink-500 rounded-xl mb-4 overflow-hidden flex items-center justify-center"
+            >
+              <img
+                src="image/foto-2.jpg"
+                alt="Kenangan Kelas"
+                class="w-full h-full object-cover"
+              />
+            </div>
+
+            <h3 class="text-lg font-bold text-gray-800 mb-2">Outbond Kampus</h3>
+            <p class="text-gray-600 text-sm">
+              Hari ke-2 Outbond di Tawangmangu
+            </p>
+          </div>
+
+          <div
+            class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover-lift fade-in"
+          >
+            <div
+              class="w-full h-50 bg-gradient-to-br from-purple-400 to-pink-500 rounded-xl mb-4 overflow-hidden flex items-center justify-center"
+            >
+              <img
+                src="image/foto-3.jpg"
+                alt="Kenangan Kelas"
+                class="w-full h-full object-cover"
+              />
+            </div>
+
+            <h3 class="text-lg font-bold text-gray-800 mb-2">Outbond Kampus</h3>
+            <p class="text-gray-600 text-sm">
+              Hari ke-1 Outbond di Tawangmangu
+            </p>
+          </div>
+
+          <div
+            class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover-lift fade-in"
+          >
+            <div
+              class="w-full h-50 bg-gradient-to-br from-purple-400 to-pink-500 rounded-xl mb-4 overflow-hidden flex items-center justify-center"
+            >
+              <img
+                src="image/foto-4.jpg"
+                alt="Kenangan Kelas"
+                class="w-full h-full object-cover"
+              />
+            </div>
+
+            <h3 class="text-lg font-bold text-gray-800 mb-2">OTW Tempat Outbond</h3>
+            <p class="text-gray-600 text-sm">
+              Persiapan jalan ke Outbond
+            </p>
+          </div>
+
+          <div
+            class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover-lift fade-in"
+          >
+            <div
+              class="w-full h-50 bg-gradient-to-br from-purple-400 to-pink-500 rounded-xl mb-4 overflow-hidden flex items-center justify-center"
+            >
+              <img
+                src="image/foto-5.jpg"
+                alt="Kenangan Kelas"
+                class="w-full h-full object-cover"
+              />
+            </div>
+
+            <h3 class="text-lg font-bold text-gray-800 mb-2">Setelah UTS (pria)</h3>
+            <p class="text-gray-600 text-sm">
+              Foto setelah melaksanakan Ujian Tengah Semester
+            </p>
+          </div>
+
+          <div
+            class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover-lift fade-in"
+          >
+            <div
+              class="w-full h-50 bg-gradient-to-br from-purple-400 to-pink-500 rounded-xl mb-4 overflow-hidden flex items-center justify-center"
+            >
+              <img
+                src="image/foto-6.jpg"
+                alt="Kenangan Kelas"
+                class="w-full h-full object-cover"
+              />
+            </div>
+
+            <h3 class="text-lg font-bold text-gray-800 mb-2">Setelah UTS (wanita)</h3>
+            <p class="text-gray-600 text-sm">
+              Foto setelah melaksanakan Ujian Tengah Semester
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Add Photo Modal -->
+    <div
+      id="addPhotoModal"
+      class="fixed inset-0 hidden items-center justify-center z-50"
+    >
+      <div class="absolute inset-0 modal-backdrop"></div>
+      <div
+        class="relative bg-white rounded-lg max-w-xl w-full p-6 shadow-2xl z-10"
+      >
+        <!-- <h3 class="text-xl font-bold mb-4">Tambah Foto Siswa</h3> -->
+        <input id="photo-input" type="file" accept="image/*" class="mb-4" />
+        <div
+          id="photo-preview"
+          class="w-48 h-48 bg-gray-100 rounded-lg mb-4 flex items-center justify-center overflow-hidden"
+        ></div>
+        <div class="flex justify-end space-x-3">
+          <button
+            onclick="closeAddPhotoModal()"
+            class="px-4 py-2 bg-gray-200 rounded"
+          >
+            Batal
+          </button>
+          <button
+            onclick="confirmAddPhoto()"
+            class="px-4 py-2 bg-green-600 text-white rounded"
+          >
+            Simpan
+          </button>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- Add Photo Modal -->
-  <div id="addPhotoModal" class="fixed inset-0 hidden items-center justify-center z-50">
-    <div class="absolute inset-0 modal-backdrop"></div>
-    <div class="relative bg-white rounded-lg max-w-xl w-full p-6 shadow-2xl z-10">
-      <!-- <h3 class="text-xl font-bold mb-4">Tambah Foto Siswa</h3> -->
-      <input id="photo-input" type="file" accept="image/*" class="mb-4" />
-      <div id="photo-preview" class="w-48 h-48 bg-gray-100 rounded-lg mb-4 flex items-center justify-center overflow-hidden"></div>
-      <div class="flex justify-end space-x-3">
-        <button onclick="closeAddPhotoModal()" class="px-4 py-2 bg-gray-200 rounded">Batal</button>
-        <button onclick="confirmAddPhoto()" class="px-4 py-2 bg-green-600 text-white rounded">Simpan</button>
-      </div>
-    </div>
-  </div>
-
-<script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
