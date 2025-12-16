@@ -7,31 +7,31 @@
 const STORAGE_KEY = 'kelas25a3_students_v1';
 
 const defaultStudents = [
-  { id: 1, name: 'ACHMAD DANIEL', nickname: 'Ahmed', birthDate: '2007-01-16', username: '@161ahmedd', motivation: 'tidak ada karena saya gak tau ah males', photo: '' },
-  { id: 2, name: 'FATTAH SYAIFULLOH', nickname: 'Fattah', birthDate: '2006-06-12', username: 'ftthsyfllh', motivation: 'aku mencintaimu sederas hujan, tapi kamu menganggap aku hanya sebatas teman. HIDUP BLONDEEE', photo: '' },
-  { id: 3, name: 'ANINDIA PRADITA MEIDA', nickname: 'Anin', birthDate: '2006-05-11', username: 'anienzxy', motivation: 'ga butuh motivasi, butuhnya diskon Shopee', photo: '' },
-  { id: 4, name: 'ARDIAN FIRMANSYAH', nickname: 'Ardian', birthDate: '2007-10-15', username: 'arrdd_fr', motivation: 'Berjalan tak seperti rencana adalah jalan yang sudah biasa, dan jalan satu-satunya jalani sebaik kau bisa - FSTVLST', photo: '' },
-  { id: 5, name: 'BAGAS NUGRAHA ENDIANSYAH', nickname: 'Bagas', birthDate: '2007-01-18', username: 'bagas31.co', motivation: 'LANANG KUI "PIYE CARANE" ORA "CARANE PIYE?"', photo: '' },
-  { id: 6, name: 'DANUAR ILHAM KURNYAWAN', nickname: 'Danuar', birthDate: '2007-01-18', username: 'danuarilham', motivation: 'Living a life of getting wide no wiser, Chasing some dimes. Saving it for then waster - The Sigit', photo: '' },
-  { id: 7, name: 'DENOK DWI HIDAYATI', nickname: 'Denok', birthDate: '2005-12-10', username: 'den_hida', motivation: '"Besi yang dingin ditempa di ujung jalan; cahaya yang menyendiri muncul di tengah malam yang panjang."', photo: '' },
-  { id: 8, name: 'EKA WIDIASTUTI', nickname: 'Eka', birthDate: '2007-03-08', username: 'xwidiiiaa_07', motivation: 'Gagal itu wajar,yang penting jangan gagal move on 😜', photo: '' },
-  { id: 9, name: 'FAIZAL SAPUTRA', nickname: 'Faizal', birthDate: '2006-10-21', username: '@izaloafonso', motivation: 'Sampai lupa pernah punya cita-cita, karena sekarang hidupnya cuman bekerja, bertahan dan berdoa', photo: '' },
-  { id: 10, name: 'AKBAR WAHYU FEBRIYANTO', nickname: 'Akbar', birthDate: '2007-02-10', username: 'akbrwahy._', motivation: 'tiada hidup tanpa masalah, tiada perjuangan tanpa rasa lelah, tetap semangatlah sampai bismillah mu menjadi alhamdulillah', photo: '' },
-  { id: 11, name: 'GOLEOVI AL-FAUZI', nickname: 'Ovi', birthDate: '2006-05-26', username: '@goleo.pille', motivation: 'Uang memang tidak dibawa mati. Tapi kalau nggak ada uang, rasanya mau mati.', photo: '' },
-  { id: 12, name: 'JOFAN HANDIKA ADYAKSA', nickname: 'Jofan', birthDate: '2006-07-25', username: 'jofanhandikaaa', motivation: '"Selagi masih dikasih nyawa jangan lupa coding. Kegagalan hari ini bisa jadi bahan cerita lucu besok"', photo: '' },
-  { id: 13, name: 'MAGNUS FREDICSEN AMIGI DA COSTA XIMENES', nickname: 'Magnos', birthDate: '2007-10-18', username: 'magnosxi_18', motivation: 'keberhasilan bukanlah milik orang pintar, keberhasilan adalah milik Mereka yang sanantiasa berusaha🤟', photo: '' },
-  { id: 14, name: 'MISYELA AMANDO AYU SAPUTRI', nickname: 'Misyela', birthDate: '2006-12-21', username: 'msyelamnda', motivation: 'Jika kamu sudah berada di plan b, ingat masih ada plan c plan d plan e dan seterusnya. Tetap semangat', photo: '' },
-  { id: 15, name: 'MUHAMMAD LUQMAN AL BUKHORI', nickname: 'Luqman', birthDate: '2007-03-28', username: 'Ailzee007', motivation: 'tidak ada kata kata hanya ada bukti nyata', photo: '' },
-  { id: 16, name: 'NAYANDA HALSEMA', nickname: 'Naya', birthDate: '2005-02-05', username: 'halsema.nayanda', motivation: 'Pendidikan adalah paspor ke masa depan, karena besok milik mereka yang mempersiapkannya hari ini', photo: '' },
-  { id: 17, name: 'PRATIWI', nickname: 'Tiwi', birthDate: '2006-06-15', username: 'oneof_tiwi', motivation: 'kepercayaan diri tumbuh dari keberanian untuk mencoba', photo: '' },
-  { id: 18, name: 'PYPYT RHAKHIMINATUN KHASANAH', nickname: 'Pypyt', birthDate: '2007-07-24', username: 'x.lupy', motivation: 'The death will smile at every man, All one can do is to smile back - The Sigit', photo: '' },
-  { id: 19, name: 'RATRI NUR PRASINTA', nickname: 'Ratri', birthDate: '2005-07-22', username: 'ratrii.np', motivation: 'semangkok mi ayam dan es jeruk lalu lanjutkan perjalanan mu', photo: '' },
-  { id: 20, name: 'REZA MICHAEL ALVANDO', nickname: 'Reza', birthDate: '2007-07-01', username: 'reza_mikell', motivation: 'penting urip ngono wae', photo: '' },
-  { id: 21, name: 'SAVIRA DIVA AZZAHRA', nickname: 'Savira', birthDate: '2007-01-31', username: 'saviradivaaz', motivation: 'di dunia informasi, setiap data memiliki cerita yang menanti untuk diceritakan', photo: '' },
-  { id: 22, name: 'SYIFA DAMAR ARUM', nickname: 'Syifa', birthDate: '2007-05-04', username: 'ciipssyifa', motivation: 'tidak ada jalan tanpa debu dan tidak ada kesuksesan tanpa doa ibu', photo: '' },
-  { id: 23, name: 'VICKY REGA SYAPUTRA', nickname: 'Vicky', birthDate: '2007-06-15', username: 'pikiii_r', motivation: 'fisik bisa dirubah, materi cari di google', photo: '' },
-  { id: 24, name: 'MOHAMMED NABIL AL SELMI', nickname: 'Al Selmi', birthDate: '2001-05-24', username: 'al selmi', motivation: '', photo: '' },
-  { id: 25, name: 'NINA FIFI ANDHANI', nickname: 'Nina', birthDate: '2007-06-30', username: 'ninafifii_', motivation: 'Sabar itu penting, tapi makan itu lebih penting', photo: '' }
+  { id: 1, name: 'ACHMAD DANIEL', nickname: 'Ahmed', birthDate: '2007-01-16', username: '@161ahmedd', motivation: 'tidak ada karena saya gak tau ah males', photo: 'image/pp-24.jpg' },
+  { id: 2, name: 'FATTAH SYAIFULLOH', nickname: 'Fattah', birthDate: '2006-06-12', username: 'ftthsyfllh', motivation: 'aku mencintaimu sederas hujan, tapi kamu menganggap aku hanya sebatas teman. HIDUP BLONDEEE', photo: 'image/pp-15.jpg' },
+  { id: 3, name: 'ANINDIA PRADITA MEIDA', nickname: 'Anin', birthDate: '2006-05-11', username: 'anienzxy', motivation: 'ga butuh motivasi, butuhnya diskon Shopee', photo: 'image/pp-16.jpg' },
+  { id: 4, name: 'ARDIAN FIRMANSYAH', nickname: 'Ardian', birthDate: '2007-10-15', username: 'arrdd_fr', motivation: 'Berjalan tak seperti rencana adalah jalan yang sudah biasa, dan jalan satu-satunya jalani sebaik kau bisa - FSTVLST', photo: 'image/pp-11.jpg' },
+  { id: 5, name: 'BAGAS NUGRAHA ENDIANSYAH', nickname: 'Bagas', birthDate: '2007-01-18', username: 'bagas31.co', motivation: 'LANANG KUI "PIYE CARANE" ORA "CARANE PIYE?"', photo: 'image/pp-2.jpg' },
+  { id: 6, name: 'DANUAR ILHAM KURNYAWAN', nickname: 'Danuar', birthDate: '2007-01-18', username: 'danuarilham', motivation: 'Living a life of getting wide no wiser, Chasing some dimes. Saving it for then waster - The Sigit', photo: 'image/pp-28.jpg' },
+  { id: 7, name: 'DENOK DWI HIDAYATI', nickname: 'Denok', birthDate: '2005-12-10', username: 'den_hida', motivation: '"Besi yang dingin ditempa di ujung jalan; cahaya yang menyendiri muncul di tengah malam yang panjang."', photo: 'image/pp-25.jpg' },
+  { id: 8, name: 'EKA WIDIASTUTI', nickname: 'Eka', birthDate: '2007-03-08', username: 'xwidiiiaa_07', motivation: 'Gagal itu wajar,yang penting jangan gagal move on 😜', photo: 'image/pp-9.jpg' },
+  { id: 9, name: 'FAIZAL SAPUTRA', nickname: 'Faizal', birthDate: '2006-10-21', username: '@izaloafonso', motivation: 'Sampai lupa pernah punya cita-cita, karena sekarang hidupnya cuman bekerja, bertahan dan berdoa', photo: 'image/pp-17.jpg' },
+  { id: 10, name: 'AKBAR WAHYU FEBRIYANTO', nickname: 'Akbar', birthDate: '2007-02-10', username: 'akbrwahy._', motivation: 'tiada hidup tanpa masalah, tiada perjuangan tanpa rasa lelah, tetap semangatlah sampai bismillah mu menjadi alhamdulillah', photo: 'image/pp-21.jpg' },
+  { id: 11, name: 'GOLEOVI AL-FAUZI', nickname: 'Ovi', birthDate: '2006-05-26', username: '@goleo.pille', motivation: 'Uang memang tidak dibawa mati. Tapi kalau nggak ada uang, rasanya mau mati.', photo: 'image/pp-19.jpg' },
+  { id: 12, name: 'JOFAN HANDIKA ADYAKSA', nickname: 'Jofan', birthDate: '2006-07-25', username: 'jofanhandikaaa', motivation: '"Selagi masih dikasih nyawa jangan lupa coding. Kegagalan hari ini bisa jadi bahan cerita lucu besok"', photo: 'image/pp-22.jpg' },
+  { id: 13, name: 'MAGNUS FREDICSEN AMIGI DA COSTA XIMENES', nickname: 'Magnos', birthDate: '2007-10-18', username: 'magnosxi_18', motivation: 'keberhasilan bukanlah milik orang pintar, keberhasilan adalah milik Mereka yang sanantiasa berusaha🤟', photo: 'image/pp-20.jpg' },
+  { id: 14, name: 'MISYELA AMANDO AYU SAPUTRI', nickname: 'Misyela', birthDate: '2006-12-21', username: 'msyelamnda', motivation: 'Jika kamu sudah berada di plan b, ingat masih ada plan c plan d plan e dan seterusnya. Tetap semangat', photo: 'image/pp-5.jpg' },
+  { id: 15, name: 'MUHAMMAD LUQMAN AL BUKHORI', nickname: 'Luqman', birthDate: '2007-03-28', username: 'Ailzee007', motivation: 'tidak ada kata kata hanya ada bukti nyata', photo: 'image/pp-13.jpg' },
+  { id: 16, name: 'NAYANDA HALSEMA', nickname: 'Naya', birthDate: '2005-02-05', username: 'halsema.nayanda', motivation: 'Pendidikan adalah paspor ke masa depan, karena besok milik mereka yang mempersiapkannya hari ini', photo: 'image/pp-4.jpg' },
+  { id: 17, name: 'PRATIWI', nickname: 'Tiwi', birthDate: '2006-06-15', username: 'oneof_tiwi', motivation: 'kepercayaan diri tumbuh dari keberanian untuk mencoba', photo: 'image/pp-30.jpg' },
+  { id: 18, name: 'PYPYT RHAKHIMINATUN KHASANAH', nickname: 'Pypyt', birthDate: '2007-07-24', username: 'x.lupy', motivation: 'The death will smile at every man, All one can do is to smile back - The Sigit', photo: 'image/pp-29.png' },
+  { id: 19, name: 'RATRI NUR PRASINTA', nickname: 'Ratri', birthDate: '2005-07-22', username: 'ratrii.np', motivation: 'semangkok mi ayam dan es jeruk lalu lanjutkan perjalanan mu', photo: 'image/pp-14.jpg' },
+  { id: 20, name: 'REZA MICHAEL ALVANDO', nickname: 'Reza', birthDate: '2007-07-01', username: 'reza_mikell', motivation: 'penting urip ngono wae', photo: 'image/pp-12.jpg' },
+  { id: 21, name: 'SAVIRA DIVA AZZAHRA', nickname: 'Savira', birthDate: '2007-01-31', username: 'saviradivaaz', motivation: 'di dunia informasi, setiap data memiliki cerita yang menanti untuk diceritakan', photo: 'image/pp-18.jpg' },
+  { id: 22, name: 'SYIFA DAMAR ARUM', nickname: 'Syifa', birthDate: '2007-05-04', username: 'ciipssyifa', motivation: 'tidak ada jalan tanpa debu dan tidak ada kesuksesan tanpa doa ibu', photo: 'image/pp-26.jpg' },
+  { id: 23, name: 'VICKY REGA SYAPUTRA', nickname: 'Vicky', birthDate: '2007-06-15', username: 'pikiii_r', motivation: 'fisik bisa dirubah, materi cari di google', photo: 'image/pp-7.jpg' },
+  { id: 24, name: 'MOHAMMED NABIL AL SELMI', nickname: 'Al Selmi', birthDate: '2001-05-24', username: 'al selmi', motivation: '', photo: 'image/pp-10.jpg' },
+  { id: 25, name: 'NINA FIFI ANDHANI', nickname: 'Nina', birthDate: '2007-06-30', username: 'ninafifii_', motivation: 'Sabar itu penting, tapi makan itu lebih penting', photo: 'image/pp-1.jpg' }
 ];
 
 let students = loadStudentsFromStorage();
@@ -74,7 +74,7 @@ function createStudentCard(student) {
     img.className = 'w-full h-full object-cover';
     photoWrap.appendChild(img);
   } else {
-    photoWrap.classList.add('bg-gradient-to-br','from-amber-600','to-orange-700');
+    photoWrap.classList.add('bg-gradient-to-br','from-blue-600','to-orange-700');
     const span = document.createElement('span');
     span.className = 'text-white font-bold text-xl';
     span.innerText = initials(student.name);
@@ -86,7 +86,7 @@ function createStudentCard(student) {
   nameEl.innerText = student.name;
 
   const nickEl = document.createElement('p');
-  nickEl.className = 'text-amber-700 text-center font-semibold mb-1';
+  nickEl.className = 'text-blue-700 text-center font-semibold mb-1';
   nickEl.innerText = student.nickname;
 
   const userEl = document.createElement('p');
@@ -151,7 +151,7 @@ function renderFeatured() {
     name.innerText = s.name;
 
     const role = document.createElement('p');
-    role.className = 'text-amber-700 font-semibold mb-2';
+    role.className = 'text-blue-700 font-semibold mb-2';
     role.innerText = label;
 
     const ig = document.createElement('p');
